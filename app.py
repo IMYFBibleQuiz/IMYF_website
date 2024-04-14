@@ -63,7 +63,7 @@ class User(db.Model):
     fathername = db.Column(db.String(100), nullable=False)
     dob = db.Column(db.String(20), nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    age_group = db.Column(db.String(10), nullable=False)
+    age_group = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(100), nullable=False)
     examCenter = db.Column(db.String(100), nullable=False)
     examCenterAddress = db.Column(db.String(100), nullable=False)
