@@ -177,6 +177,7 @@ def handle_options():
 
 @app.route('/get_users', methods=['GET'])
 def get_users():
+    session = db.session
     # Query the User table to retrieve data
     try:
         users = User.query.all()
