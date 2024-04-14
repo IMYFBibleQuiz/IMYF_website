@@ -74,13 +74,29 @@ def create_tables():
         db.create_all()
 
 def register_user(data):
+    global db
     data = request.get_json()
-    existing_user = User.query.filter_by(email=data['email']).first()
+    try:
+        existing_user = User.query.filter_by(email=data['email']).first()
 
-    if existing_user:
-        return None, False
+        if existing_user:
+            return None, False
 
-    last_user = User.query.with_entities(User.id).order_by(User.roll_no.desc()).first()
+        last_user = User.query.with_entities(User.id).order_by(User.roll_no.desc()).first()
+    except Exception as e:
+        print(f"OperationalError with the database: {e}")
+        
+        # Close the existing session and create a new database engine
+        db.session.rollback()
+        db.engine.dispose()
+        db.engine.connect()
+
+        existing_user = User.query.filter_by(email=data['email']).first()
+
+        if existing_user:
+            return None, False
+
+        last_user = User.query.with_entities(User.id).order_by(User.roll_no.desc()).first()
 
     # Extract the last 3 digits from the id and increment it
     if last_user:
@@ -428,10 +444,21 @@ def send_otp_email(username, otp):
 
 @app.route('/login', methods=['POST'])
 def login():
+    global db
     username = request.json.get('username')
     password = request.json.get('password')
     
-    admin = Admin.query.filter_by(username=username).first()
+    try:
+        admin = Admin.query.filter_by(username=username).first()
+    except Exception as e:
+        print(f"OperationalError with the database: {e}")
+        
+        # Close the existing session and create a new database engine
+        db.session.rollback()
+        db.engine.dispose()
+        db.engine.connect()
+        
+        admin = Admin.query.filter_by(username=username).first()
     if not admin or admin.password != hash_password(password):
         return jsonify({'success': False, 'message' : 'Invalid username or password'}), 401
     
@@ -440,9 +467,20 @@ def login():
 
 @app.route('/forgot_password', methods=['POST'])
 def forgot_password():
+    global db
     username = request.json.get('username')
     
-    admin = Admin.query.filter_by(username=username).first()
+    try:
+        admin = Admin.query.filter_by(username=username).first()
+    except Exception as e:
+        print(f"OperationalError with the database: {e}")
+        
+        # Close the existing session and create a new database engine
+        db.session.rollback()
+        db.engine.dispose()
+        db.engine.connect()
+        
+        admin = Admin.query.filter_by(username=username).first()
     if not admin:
         print(username)
         return jsonify({'success': False, 'message': 'Username is not found', 'username' : username }), 404
@@ -457,9 +495,20 @@ def forgot_password():
 
 @app.route('/verify_otp', methods=['POST'])
 def verify_otp():
+    global db
     otp = request.json.get('otp')
     
-    admin = Admin.query.first()
+    try:
+        admin = Admin.query.first()
+    except Exception as e:
+        print(f"OperationalError with the database: {e}")
+        
+        # Close the existing session and create a new database engine
+        db.session.rollback()
+        db.engine.dispose()
+        db.engine.connect()
+        
+        admin = Admin.query.first()
     admin.otp=int(admin.otp)
     if not admin or admin.otp != otp or admin.otp_expiry < datetime.now():
         return jsonify({'success': False, 'message': 'Invalid OTP'}), 400
@@ -468,11 +517,21 @@ def verify_otp():
 
 @app.route('/reset_password', methods=['POST'])
 def reset_password():
+    global db
     username = request.json.get('username')
     new_password = request.json.get('new_password')
     
-    
-    admin = Admin.query.filter_by(username=username).first()
+    try:
+        admin = Admin.query.filter_by(username=username).first()
+    except Exception as e:
+        print(f"OperationalError with the database: {e}")
+        
+        # Close the existing session and create a new database engine
+        db.session.rollback()
+        db.engine.dispose()
+        db.engine.connect()
+        
+        admin = Admin.query.filter_by(username=username).first()
     if not admin:
         return jsonify({'success': False, 'message': 'Username not found'}), 404
     
