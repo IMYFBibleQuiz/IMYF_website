@@ -180,7 +180,7 @@ def get_users():
     # Query the User table to retrieve data
     try:
         users = User.query.all()
-    except OperationalError as e:
+    except:
         print(f"OperationalError with the database: {e}")
         
         # Close the existing session and create a new database engine
@@ -191,7 +191,7 @@ def get_users():
         # Create a new database engine
         db.engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
         
-    
+    users = User.query.all()
     # Serialize the data into JSON format
     users_json = [
         {
