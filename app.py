@@ -178,8 +178,20 @@ def handle_options():
 @app.route('/get_users', methods=['GET'])
 def get_users():
     # Query the User table to retrieve data
-    users = User.query.all()
-
+    try:
+        users = User.query.all()
+    except OperationalError as e:
+        print(f"OperationalError with the database: {e}")
+        
+        # Close the existing session and create a new database engine
+        session.close()
+        db.engine.dispose()
+        db.session.close_all()
+        
+        # Create a new database engine
+        db.engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+        
+    
     # Serialize the data into JSON format
     users_json = [
         {
