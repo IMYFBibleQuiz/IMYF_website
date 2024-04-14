@@ -177,7 +177,7 @@ def handle_options():
 
 @app.route('/get_users', methods=['GET'])
 def get_users():
-    # Query the User table to retrieve data
+    global db
     try:
         users = User.query.all()
     except Exception as e:
