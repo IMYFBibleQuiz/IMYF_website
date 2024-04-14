@@ -31,10 +31,10 @@ refresh_token = os.environ.get('DROPBOX_REFRESH_TOKEN')
 dropbox_access_token = os.environ.get('DROPBOX_ACCESS_TOKEN')
 
 # Database configuration
-db_user = os.environ.get('DB_USER', 'root')
-db_password = os.environ.get('DB_PASSWORD', '0000')
-db_host = os.environ.get('DB_HOST', 'localhost')
-db_name = os.environ.get('DB_NAME', 'user')
+db_user = os.environ.get('DB_USER')
+db_password = os.environ.get('DB_PASSWORD')
+db_host = os.environ.get('DB_HOST')
+db_name = os.environ.get('DB_NAME')
 
 # Constructing the database URI
 db_uri = f"mysql://{db_user}:{db_password}@{db_host}/{db_name}"
@@ -126,6 +126,42 @@ def send_confirmation_email(email, fullname, roll_no):
 @app.route('/')
 def hello():
     return 'hello there'
+
+@app.route('/test', methods=['GET'])
+def test_endpoint():
+    """
+    A test endpoint to verify application functionality and database connection.
+    """
+    try:
+        # Attempt to insert a new user into the User table for testing
+        new_user = User(
+            id='TEST001',
+            fullname='Test User',
+            fathername='Test Father',
+            dob='2000-01-01',
+            age=24,
+            age_group='Adult',
+            email='testuser@example.com',
+            examCenter='Test Center',
+            examCenterAddress='Test Address',
+            aadharCardNo='123456789012',
+            whatsappNo='9876543210'
+        )
+        db.session.add(new_user)
+        db.session.commit()
+
+        # Query the inserted user to confirm insertion
+        user = User.query.filter_by(id='TEST001').first()
+
+        if user:
+            return jsonify({'message': 'Test successful! Database connection and insertion established.'})
+        else:
+            return jsonify({'message': 'Test failed. User insertion or query issue.'})
+
+    except Exception as e:
+        # Catch any exceptions during database interaction
+        return jsonify({'message': f'Test failed. Error: {e}  Database host: {db_host if db_host else "Not set"}'})
+
 
 @app.route('/api/generate_pdf', methods=['OPTIONS'])
 def handle_options():
