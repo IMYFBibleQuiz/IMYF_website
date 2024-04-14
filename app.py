@@ -345,7 +345,7 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
     c.line(365, 60, 460, 60)
 
     # Draw the logo in the top right corner
-    c.drawImage('./imyf_landing_page/src/assets/imgs/IMYF_logo.jpg', 400, 315, width=60, height=60)
+    c.drawImage('IMYF_logo.jpg', 400, 315, width=60, height=60)
     c.save()
 
     pdf_data = buffer.getvalue() 
