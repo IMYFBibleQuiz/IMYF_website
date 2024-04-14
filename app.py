@@ -177,7 +177,6 @@ def handle_options():
 
 @app.route('/get_users', methods=['GET'])
 def get_users():
-    session = db.session
     # Query the User table to retrieve data
     try:
         users = User.query.all()
@@ -187,9 +186,7 @@ def get_users():
         # Close the existing session and create a new database engine
         session.close()
         db.engine.dispose()
-        db.session.close_all()
-        new_session = db.session()
-        db.session = new_session
+        db.engine.connect()
         
     users = User.query.all()
     # Serialize the data into JSON format
