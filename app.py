@@ -184,7 +184,7 @@ def get_users():
         print(f"OperationalError with the database: {e}")
         
         # Close the existing session and create a new database engine
-	db.session.rollback()
+        db.session.rollback()
         db.engine.dispose()
         db.engine.connect()
         
