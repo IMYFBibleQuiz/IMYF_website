@@ -188,9 +188,8 @@ def get_users():
         session.close()
         db.engine.dispose()
         db.session.close_all()
-        
-        # Create a new database engine
-        db.engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+        new_session = db.session()
+        db.session = new_session
         
     users = User.query.all()
     # Serialize the data into JSON format
