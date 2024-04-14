@@ -180,7 +180,7 @@ def get_users():
     # Query the User table to retrieve data
     try:
         users = User.query.all()
-    except:
+    except Exception as e:
         print(f"OperationalError with the database: {e}")
         
         # Close the existing session and create a new database engine
