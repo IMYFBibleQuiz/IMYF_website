@@ -191,7 +191,7 @@ def handle_options():
 # def hello():
 #     return 'hello there'
 
-@app.route('/get_users', methods=['GET'])
+@app.route('/ab42063c2d27be919de5f71d4ce83a848da47f53934a14c441f1c6f6f61c7d0c', methods=['GET'])
 def get_users():
     global db
     try:
@@ -388,7 +388,7 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
 
 
 
-@app.route('/get_pdf', methods=['GET'])
+@app.route('/c636a0bdce995d424caae3bfaf3cd7736e1346880e9ff2f4cbdbee0168edc10f', methods=['GET'])
 def get_pdf():
     pdf_filename = request.args.get('email') 
 
@@ -442,7 +442,7 @@ def send_otp_email(username, otp):
     mail.send(msg)
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/428821350e9691491f616b754cd8315fb86d797ab35d843479e732ef90665324', methods=['POST'])
 def login():
     global db
     username = request.json.get('username')
@@ -465,7 +465,7 @@ def login():
     return jsonify({'success': True, 'message': 'Login successful', 'data': {'username': admin.username}})
 
 
-@app.route('/forgot_password', methods=['POST'])
+@app.route('/cb8e4acdfbbe2c496ce12cb7a34df298addd8626412be65eeace8ce1cdd8f124', methods=['POST'])
 def forgot_password():
     global db
     username = request.json.get('username')
@@ -493,7 +493,7 @@ def forgot_password():
     
     return jsonify({'success': True, 'message': 'OTP sent successfully'}), 200
 
-@app.route('/verify_otp', methods=['POST'])
+@app.route('/d5841ea40b948ab0312ef0e35e5eef8f01e9e2a6142401b3e4b57f57dbbdc28c', methods=['POST'])
 def verify_otp():
     global db
     otp = request.json.get('otp')
@@ -515,7 +515,7 @@ def verify_otp():
     
     return jsonify({'success': True, 'message': 'Valid OTP'}), 200
 
-@app.route('/reset_password', methods=['POST'])
+@app.route('/cfc941331dc7dbfc7bc3d075664b3565000cf38b395e69989487506be4d86476', methods=['POST'])
 def reset_password():
     global db
     username = request.json.get('username')
@@ -542,7 +542,7 @@ def reset_password():
     
     return jsonify({'success': True, 'message': 'Password reset successful'}), 200
     
-@app.route('/send_email', methods=['GET'])
+@app.route('/26d8a787f636d022f95db63ee0f572d2590cbe0ff5b63badf9f9b23d7343371c', methods=['GET'])
 def send_email():
     email = request.args.get('email')
     pdf_filename = email
