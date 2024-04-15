@@ -141,7 +141,7 @@ def send_confirmation_email(email, fullname, roll_no):
 
 @app.route('/')
 def hello():
-    return 'hello there'
+    return jsonify(success=True, message="Hello there!")
 
 @app.route('/test', methods=['GET'])
 def test_endpoint():
