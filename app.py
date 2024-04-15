@@ -552,7 +552,7 @@ def send_email():
         msg = Message(subject,
                       sender='samrig25@gmail.com',
                       recipients=[email])
-        msg.body = 'Some message content'
+        msg.body = 'Dear Registrant,\nWe have received your payment! Your can find your hall ticket attached to this email.'
         msg.attach('hall_ticket', 'application/pdf', pdf_data)
         mail.send(msg)
         return jsonify({'success': True, 'message': 'Email sent successfully'}), 200
