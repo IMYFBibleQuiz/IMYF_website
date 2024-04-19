@@ -350,7 +350,8 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
     c.drawString(30, 350, f"Roll No/Ref No.: {roll_no}")
 
     # Name
-    c.drawString(30, 300, f"Name: {name}")
+    c.drawString(30, 295, f"Name: {name}")
+    
 
     # Age
     c.drawString(30, 275, f"Age: {age}")
