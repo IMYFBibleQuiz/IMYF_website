@@ -246,7 +246,7 @@ def generate_certificate_route():
         whatsappNo = data['whatsappNo']
         print(examCenterAddress)
         print(type(examCenterAddress))
-	print(type(aadharCardNo))
+        print(type(aadharCardNo))
         data = request.get_json()
         user_data = {
         'fullname' : data.get('fullname'),
