@@ -240,9 +240,23 @@ def generate_certificate_route():
         age = data.get('age')
         age_group = data.get('age_group')
         email = data.get('email')
-        examCenter=data['examCenter'],
-        examCenterAddress=data['examCenterAddress'],
-        aadharCardNo = data['aadharCardNo'],
+        examCenter = data.get('examCenter')
+        if isinstance(examCenter, (list, tuple)):
+            examCenter = examCenter[0]  # Take the first value
+        else:
+            examCenter = str(examCenter)
+        
+        examCenterAddress = data.get('examCenterAddress')
+        if isinstance(examCenterAddress, (list, tuple)):
+            examCenterAddress = examCenterAddress[0]  # Take the first value
+        else:
+            examCenterAddress = str(examCenterAddress)
+        
+        aadharCardNo = data.get('aadharCardNo')
+        if isinstance(aadharCardNo, (list, tuple)):
+            aadharCardNo = aadharCardNo[0]  # Take the first value
+        else:
+            aadharCardNo = str(aadharCardNo)
         whatsappNo = data['whatsappNo']
         print(examCenterAddress)
         print(type(examCenterAddress))
