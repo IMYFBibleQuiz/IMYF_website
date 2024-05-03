@@ -387,7 +387,9 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
 
     c.setStrokeColorRGB(1, 0.5, 0)
 
-    # Roll No/Ref No
+    
+    c.setFont("Helvetica", 11)
+	
     c.drawString(30, 350, f"Roll No/Ref No.: {roll_no}")
 
     # Name
@@ -417,8 +419,6 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
 
     # Exam Centre Address
     c.drawString(30, 155, f"Exam Centre Address: {examCenterAddress}")
-
-    c.setFont("Helvetica", 8)
     
     address_lines = address.split('\n')  # Split address into lines
     y_position = 135  # Initial y position
@@ -426,13 +426,12 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
         c.drawString(40, y_position,line)
         y_position -= 10
 	    
-    c.setFont("Helvetica", 12)
     c.drawString(180, 80, "Signature of Participant:")
-    c.line(320, 100, 460, 100)
+    c.line(320, 80, 460, 80)
 
     # Signature of Bible Quiz Convener
     c.drawString(180, 40, "Signature of Bible Quiz Convener:")
-    c.line(365, 60, 460, 60)
+    c.line(365, 40, 460, 40)
 
     # Draw the logo in the top right corner
     c.drawImage('IMYF_logo.jpg', 400, 315, width=60, height=60)
