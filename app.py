@@ -320,7 +320,7 @@ def generate_certificate_route():
             'Exam Center Bauri':'Pr.Santlal, Bauri village, Ghazipur Dist, Uttar Pradesh Pin-233303 Landmark - Near to ramesh gas agency (bauri bridge) Phone number: 9598269490 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
         }
 
-        address=exam_center_codes[data.get('examCenterAddress')]
+        address=exam_codes[data.get('examCenterAddress')]
         pdf_data = generate_hall_ticket(roll_no, fullname, age, age_group, fathername, aadharCardNo, whatsappNo, examCenter, examCenterAddress, filename,address)
         save_to_dropbox(pdf_data, filename)
         send_confirmation_email(email, fullname,roll_no)
