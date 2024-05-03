@@ -125,7 +125,7 @@ def register_user(data):
         "Exam Center Pratappur": "U02",
         "Exam Center Bauri": "U03"
     }
-    replacement = exam_center_codes[exam_center_info]
+    replacement = exam_center_codes[data['examCenterAddress']]
     # Construct the new id for the user
     new_user_id = data['age_group'][:2] + replacement + new_last_three_digits
 
