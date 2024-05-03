@@ -300,24 +300,24 @@ def generate_certificate_route():
 
         
         exam_codes={
-            'IM Gaya Campus': 'Address: Aganda, Karmouni, Baluwa Road, Bethel Academy, Gaya.Bodh Gaya, Bihar 824234 \nIncharge: Issac Mobile: +91 9020974864',
-            'IM Purnia Campus': 'Address: Christ Mission School, Khaidalichak, Mirganj, Purnia, Bihar 854304 \nIncharge: Anu Jacob Mathew Mobile: +91 94964 62235',
+            'IM Gaya Campus': 'Address: Aganda, Karmouni, Baluwa Road, Bethel Academy, Gaya.\nBodh Gaya, Bihar 824234 \nIncharge: Issac Mobile: +91 9020974864',
+            'IM Purnia Campus': 'Address: Christ Mission School, Khaidalichak, \nMirganj, Purnia, Bihar 854304 \nIncharge: Anu Jacob Mathew Mobile: +91 94964 62235',
             'IM Nalanda Campus': 'Address: Dayavihar, Badhauna, Chandi, Nalanda, 803108 \nIncharge: Jijo B Raj Mobile: +91 80896 76878',
-            'India Mission Campus Motihari': 'Bara Bariyarpur P. O., Vankat, Motihari, East Champaran District. Bihar, Pin. 845401 Landmark: On the way to Engineering College Road, Opposite to Mayisthan \nIncharge: Shiby Thomas, Mobile: +91 94969 68034',
-            'Exam center Munger': 'Grace church, Gyanvati bhawan, infront of Dr.Madan Mohan Prasad Ghoshi Tola, munger( Bihar), Pincode: 811201 \nIncharge: Justin George, Mobile: +91 6238 463 482',
-            'Exam Center Katihar': 'Village Gopalpur, Panchayat patharwar, Post Baina, Thana pranpur, Dist katihar Bihar 854114 \nIncharge: Jijo Joseph, Mobile: +91 70126 14917',
-            'IM campus, Lalganj': 'India Mission Church Campus, Purkhouli PO, Laganj, Vaishali, Bihar - 844121 \nIncharge: Jijo Joseph, Mobile: +91 70126 14917',
-            'IM Campus, Kochas': 'Bojpur mission medical center. Dibhiya village, P. O. Dibhiya, P. S. Karaghar, Rohtas district, Bihar. Pin 821107 \nIncharge: Sam, Mobile: +91 90721 20054',
-            'Bhagalpur exam Centre': 'Jyoti vihar colony, opposite Bajaj service centre, behind Ideal coaching centre Zeromile, Sabour Bhagalpur 813210 \nIncharge: Benison Hembrom, Mobile: +91 84347 07604',
-            'Jhanjarpur exam centre': 'Village -laxmipur, Post office -kaithinia, Police station -lakhnaur, District -madhubani, Pincode -847403, State -bihar Mob no.-9110114165 \nIncharge: Anil Abraham, Mobile: +91 95465 24269',
-            'Siwan exam Centre': 'Ander. Arar.tola, Post Ander, PS Ander, District Siwan, Bihar, Pin: 841231 Pr Arjun Kumar Das \nIncharge: Emmanuel Tirkey, Mobile: +91 88629 99243',
-            'Aurangabad Campus': 'Bhairopur Highway, Aurangabad -Rajhara - Daltenganj Rd, Near Balaji Hotel Aurangabad District, Bihar 824102 Mobile number: 8084985022 \nIncharge: Sojan George Samuel, Mobile: +91 99618 91223',
-            'Bihta Campus, Patna': 'India mission board trust, Wajidpur more Maner Subdistrict, Maner - 801108, Bihar \nIncharge: Jinesh KJ Mobile: +91 96451 39843',
-            'Bhopal Campus': 'India Mission, House# 44, Tanvi Estate, Awadhpuri, Bhopal, MADHYA PRADESH 462022 Phone number: 7992356517 \nIncharge : Sohan Mahile, Mobile: +91 97536 25007',
-            'Baihar Campus': 'Baihar Campus Gladwin Solomon, India Mission, Gohara Village, Near Kopra Fatak Church, Baihar, MADHYA PRADESH 481105 Phone number: 7992356517 \nIncharge : Sohan Mahile, Mobile: +91 97536 25007',
-            'Exam Center Madhupur':'India Mission, Madhupur village, Sonbhadra Dist., Uttar Pradesh Pin 231216 Location-Near intercollege, Chandan basti Phone number: 6392294765 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
-            'Exam Center Pratappur':'India mission, Village - Pratappur church, Post mirzamurad , District Varanasi, UP Pin code 221307, Location- Shitala temple khajuri rod jio tabar ke pas Phone number: 9307502609 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
-            'Exam Center Bauri':'Pr.Santlal, Bauri village, Ghazipur Dist, Uttar Pradesh Pin-233303 Landmark - Near to ramesh gas agency (bauri bridge) Phone number: 9598269490 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
+            'India Mission Campus Motihari': 'Bara Bariyarpur P. O., Vankat, Motihari, East Champaran District. Bihar, Pin. 845401 \nLandmark: On the way to Engineering College Road, Opposite to Mayisthan \nIncharge: Shiby Thomas, Mobile: +91 94969 68034',
+            'Exam center Munger': 'Grace church, Gyanvati bhawan, \ninfront of Dr.Madan Mohan Prasad Ghoshi Tola, munger( Bihar), Pincode: 811201 \nIncharge: Justin George, Mobile: +91 6238 463 482',
+            'Exam Center Katihar': 'Village Gopalpur, Panchayat patharwar, \nPost Baina, Thana pranpur, Dist katihar Bihar 854114 \nIncharge: Jijo Joseph, Mobile: +91 70126 14917',
+            'IM campus, Lalganj': 'India Mission Church Campus, Purkhouli PO, \nLaganj, Vaishali, Bihar - 844121 \nIncharge: Jijo Joseph, Mobile: +91 70126 14917',
+            'IM Campus, Kochas': 'Bojpur mission medical center. \nDibhiya village, P. O. Dibhiya, P. S. Karaghar, Rohtas district, Bihar. Pin 821107 \nIncharge: Sam, Mobile: +91 90721 20054',
+            'Bhagalpur exam Centre': 'Jyoti vihar colony, opposite Bajaj service centre, \nbehind Ideal coaching centre Zeromile, Sabour Bhagalpur 813210 \nIncharge: Benison Hembrom, Mobile: +91 84347 07604',
+            'Jhanjarpur exam centre': 'Village -laxmipur, Post office -kaithinia, \nPolice station -lakhnaur, District -madhubani, Pincode -847403, State -bihar Mob no.-9110114165 \nIncharge: Anil Abraham, Mobile: +91 95465 24269',
+            'Siwan exam Centre': 'Ander. Arar.tola, Post Ander, PS Ander, District Siwan, Bihar, \nPin: 841231 Pr Arjun Kumar Das \nIncharge: Emmanuel Tirkey, Mobile: +91 88629 99243',
+            'Aurangabad Campus': 'Bhairopur Highway, Aurangabad -Rajhara - Daltenganj Rd, \nNear Balaji Hotel Aurangabad District, Bihar 824102 Mobile number: 8084985022 \nIncharge: Sojan George Samuel, Mobile: +91 99618 91223',
+            'Bihta Campus, Patna': 'India mission board trust, Wajidpur more Maner Subdistrict, \nManer - 801108, Bihar \nIncharge: Jinesh KJ Mobile: +91 96451 39843',
+            'Bhopal Campus': 'India Mission, House# 44, Tanvi Estate, Awadhpuri, Bhopal, \nMADHYA PRADESH 462022 Phone number: 7992356517 \nIncharge : Sohan Mahile, Mobile: +91 97536 25007',
+            'Baihar Campus': 'Baihar Campus Gladwin Solomon, India Mission, \nGohara Village, Near Kopra Fatak Church, Baihar, MADHYA PRADESH 481105 Phone number: 7992356517 \nIncharge : Sohan Mahile, Mobile: +91 97536 25007',
+            'Exam Center Madhupur':'India Mission, Madhupur village, \nSonbhadra Dist., Uttar Pradesh Pin 231216 Location-Near intercollege, Chandan basti Phone number: 6392294765 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
+            'Exam Center Pratappur':'India mission, Village - Pratappur church, \nPost mirzamurad , District Varanasi, UP Pin code 221307, \nLocation- Shitala temple khajuri rod jio tabar ke pas Phone number: 9307502609 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
+            'Exam Center Bauri':'Pr.Santlal, Bauri village, Ghazipur Dist, Uttar Pradesh Pin-233303 \nLandmark - Near to ramesh gas agency (bauri bridge) Phone number: 9598269490 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
         }
 
         address=exam_codes[data.get('examCenterAddress')]
@@ -424,14 +424,14 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
     y_position = 135  # Initial y position
     for line in address_lines:
         c.drawString(40, y_position,line)
-        y_position -= 10
+        y_position -= 15
 	    
-    c.drawString(180, 80, "Signature of Participant:")
-    c.line(320, 80, 460, 80)
+    c.drawString(180,y_position-20 , "Signature of Participant:")
+    c.line(320, y_position-20, 460, y_position-20)
 
     # Signature of Bible Quiz Convener
-    c.drawString(180, 40, "Signature of Bible Quiz Convener:")
-    c.line(365, 40, 460, 40)
+    c.drawString(180, y_position-40, "Signature of Bible Quiz Convener:")
+    c.line(365, y_position-40, 460, y_position-40)
 
     # Draw the logo in the top right corner
     c.drawImage('IMYF_logo.jpg', 400, 315, width=60, height=60)
