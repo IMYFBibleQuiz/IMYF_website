@@ -299,9 +299,29 @@ def generate_certificate_route():
         filename = email
 
         
-        
+        exam_codes={
+            'IM Gaya Campus': 'Address: Aganda, Karmouni, Baluwa Road, Bethel Academy, Gaya.Bodh Gaya, Bihar 824234 \nIncharge: Issac Mobile: +91 9020974864',
+            'IM Purnia Campus': 'Address: Christ Mission School, Khaidalichak, Mirganj, Purnia, Bihar 854304 \nIncharge: Anu Jacob Mathew Mobile: +91 94964 62235',
+            'IM Nalanda Campus': 'Address: Dayavihar, Badhauna, Chandi, Nalanda, 803108 \nIncharge: Jijo B Raj Mobile: +91 80896 76878',
+            'India Mission Campus Motihari': 'Bara Bariyarpur P. O., Vankat, Motihari, East Champaran District. Bihar, Pin. 845401 Landmark: On the way to Engineering College Road, Opposite to Mayisthan \nIncharge: Shiby Thomas, Mobile: +91 94969 68034',
+            'Exam center Munger': 'Grace church, Gyanvati bhawan, infront of Dr.Madan Mohan Prasad Ghoshi Tola, munger( Bihar), Pincode: 811201 \nIncharge: Justin George, Mobile: +91 6238 463 482',
+            'Exam Center Katihar': 'Village Gopalpur, Panchayat patharwar, Post Baina, Thana pranpur, Dist katihar Bihar 854114 \nIncharge: Jijo Joseph, Mobile: +91 70126 14917',
+            'IM campus, Lalganj': 'India Mission Church Campus, Purkhouli PO, Laganj, Vaishali, Bihar - 844121 \nIncharge: Jijo Joseph, Mobile: +91 70126 14917',
+            'IM Campus, Kochas': 'Bojpur mission medical center. Dibhiya village, P. O. Dibhiya, P. S. Karaghar, Rohtas district, Bihar. Pin 821107 \nIncharge: Sam, Mobile: +91 90721 20054',
+            'Bhagalpur exam Centre': 'Jyoti vihar colony, opposite Bajaj service centre, behind Ideal coaching centre Zeromile, Sabour Bhagalpur 813210 \nIncharge: Benison Hembrom, Mobile: +91 84347 07604',
+            'Jhanjarpur exam centre': 'Village -laxmipur, Post office -kaithinia, Police station -lakhnaur, District -madhubani, Pincode -847403, State -bihar Mob no.-9110114165 \nIncharge: Anil Abraham, Mobile: +91 95465 24269',
+            'Siwan exam Centre': 'Ander. Arar.tola, Post Ander, PS Ander, District Siwan, Bihar, Pin: 841231 Pr Arjun Kumar Das \nIncharge: Emmanuel Tirkey, Mobile: +91 88629 99243',
+            'Aurangabad Campus': 'Bhairopur Highway, Aurangabad -Rajhara - Daltenganj Rd, Near Balaji Hotel Aurangabad District, Bihar 824102 Mobile number: 8084985022 \nIncharge: Sojan George Samuel, Mobile: +91 99618 91223',
+            'Bihta Campus, Patna': 'India mission board trust, Wajidpur more Maner Subdistrict, Maner - 801108, Bihar \nIncharge: Jinesh KJ Mobile: +91 96451 39843',
+            'Bhopal Campus': 'India Mission, House# 44, Tanvi Estate, Awadhpuri, Bhopal, MADHYA PRADESH 462022 Phone number: 7992356517 \nIncharge : Sohan Mahile, Mobile: +91 97536 25007',
+            'Baihar Campus': 'Baihar Campus Gladwin Solomon, India Mission, Gohara Village, Near Kopra Fatak Church, Baihar, MADHYA PRADESH 481105 Phone number: 7992356517 \nIncharge : Sohan Mahile, Mobile: +91 97536 25007',
+            'Exam Center Madhupur':'India Mission, Madhupur village, Sonbhadra Dist., Uttar Pradesh Pin 231216 Location-Near intercollege, Chandan basti Phone number: 6392294765 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
+            'Exam Center Pratappur':'India mission, Village - Pratappur church, Post mirzamurad , District Varanasi, UP Pin code 221307, Location- Shitala temple khajuri rod jio tabar ke pas Phone number: 9307502609 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
+            'Exam Center Bauri':'Pr.Santlal, Bauri village, Ghazipur Dist, Uttar Pradesh Pin-233303 Landmark - Near to ramesh gas agency (bauri bridge) Phone number: 9598269490 \nIncharge : Besky Livingstone, Mobile: +91 8590976147',
+        }
 
-        pdf_data = generate_hall_ticket(roll_no, fullname, age, age_group, fathername, aadharCardNo, whatsappNo, examCenter, examCenterAddress, filename)
+        address=exam_center_codes[data.get('examCenterAddress')]
+        pdf_data = generate_hall_ticket(roll_no, fullname, age, age_group, fathername, aadharCardNo, whatsappNo, examCenter, examCenterAddress, filename,address)
         save_to_dropbox(pdf_data, filename)
         send_confirmation_email(email, fullname,roll_no)
         return jsonify({'success': True, 'filename': filename})
@@ -353,7 +373,7 @@ def refresh_access_token(refresh_token, client_id, client_secret):
         return None
 
 
-def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, mobile_no,  examCenter, examCenterAddress, filename):
+def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, mobile_no,  examCenter, examCenterAddress, filename,address):
     buffer = BytesIO()  # Create a BytesIO object to store PDF data
 
     # Create the PDF content
@@ -397,6 +417,9 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
 
     # Exam Centre Address
     c.drawString(30, 155, f"Exam Centre Address: {examCenterAddress}")
+
+    # add address with newline
+    c.drawString(30, 135, f"Address: {address}")
 
     # Signature of Participant
     c.drawString(180, 100, "Signature of Participant:")
