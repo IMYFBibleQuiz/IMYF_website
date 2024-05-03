@@ -105,8 +105,29 @@ def register_user(data):
     else:
         new_last_three_digits = "001"  # Initial value if no users exist
 
+    exam_center_codes = {
+        "IM Gaya Campus": "B01",
+        "IM Purnia Campus": "B02",
+        "IM Nalanda Campus": "B03",
+        "India Mission Campus": "B04",
+        "Exam center Munger": "B05",
+        "Exam Center Katihar": "B06",
+        "IM campus, Lalganj": "B07",
+        "IM Campus, Kochas": "B08",
+        "Bhagalpur exam Centre": "B09",
+        "Jhanjarpur exam centre": "B10",
+        "Siwan exam Centre": "B11",
+        "Aurangabad Campus": "B12",
+        "Bihta Campus, Patna": "B13",
+        "Bhopal Campus": "M01",
+        "Baihar Campus": "M02",
+        "Exam Center Madhupur": "U01",
+        "Exam Center Pratappur": "U02",
+        "Exam Center Bauri": "U03"
+    }
+    replacement = exam_center_codes[exam_center_info]
     # Construct the new id for the user
-    new_user_id = data['age_group'][:2] + data['examCenter'][:2].lower() + new_last_three_digits
+    new_user_id = data['age_group'][:2] + replacement + new_last_three_digits
 
     new_user = User(
         # roll_no = 0,
