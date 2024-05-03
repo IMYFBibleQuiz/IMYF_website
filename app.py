@@ -418,21 +418,20 @@ def generate_hall_ticket(roll_no, name, age, age_group, father_name, aadhar_no, 
     # Exam Centre Address
     c.drawString(30, 155, f"Exam Centre Address: {examCenterAddress}")
 
-    # add address with newline
-    c.drawString(30, 135, f"Address:")
+    c.setFont("Helvetica", 8)
     
     address_lines = address.split('\n')  # Split address into lines
     y_position = 135  # Initial y position
     for line in address_lines:
         c.drawString(40, y_position,line)
         y_position -= 10
-
-    # Signature of Participant
-    c.drawString(180, 100, "Signature of Participant:")
+	    
+    c.setFont("Helvetica", 12)
+    c.drawString(180, 80, "Signature of Participant:")
     c.line(320, 100, 460, 100)
 
     # Signature of Bible Quiz Convener
-    c.drawString(180, 60, "Signature of Bible Quiz Convener:")
+    c.drawString(180, 40, "Signature of Bible Quiz Convener:")
     c.line(365, 60, 460, 60)
 
     # Draw the logo in the top right corner
